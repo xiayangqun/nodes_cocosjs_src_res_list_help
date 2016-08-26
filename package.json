@@ -1,0 +1,11 @@
+{
+  "name": "xiayangqun",
+  "version": "1.0.0",
+  "description": "fileManage",
+  "main": "index.js",
+  "scripts": {
+    "test": "hah"
+  },
+  "author": "xiayangqun",
+  "license": "ISC"
+}
