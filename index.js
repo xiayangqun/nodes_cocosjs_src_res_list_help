@@ -72,15 +72,12 @@ var listResFile=function (path) {
 }
 
 
-
 listResFile('res');
 console.log('\n');
 
 console.log('\033[36m找到res文件列表如下:/\033[39m');
 for(var i=0; i<resArray.length;i++)
     console.log(resArray[i]);
-
-
 
 //将JS文件写入到project.json中
 var projectStr=fs.readFileSync('project.json','utf-8');
@@ -91,13 +88,11 @@ var wirteString=JSON.stringify(projectObj,null,2);
 fs.writeFileSync('project.json',wirteString,'utf-8');
 console.log("\n\033[36mjs文件列表已经写入到 project.json文件里了");
 
-
-
 //将res列表写入到src/resource.js中
 var str=resArray.join(',\n\t');
 str='var g_resources=[\n\t'+str+"\n];";
 fs.writeFileSync('src/resource.js',str,'utf-8');
-console.log("\nres文件列表已经写入到src/resource.js文件里了");
+console.log("res文件列表已经写入到src/resource.js文件里了\033[39m");
 
 
 
