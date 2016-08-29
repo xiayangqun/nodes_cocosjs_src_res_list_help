@@ -25,7 +25,7 @@ var listResFile=function (path) {
         var state=fs.statSync(path+'/'+fileName);
         if(state.isDirectory())
             listResFile(path+'/'+fileName);
-        else if(fileName.indexOf('.js')!=-1)
+        else if(fileName.indexOf('.js')!=-1 && fileName.indexOf('.json')==-1)
             console.log('\033[31m在res下有个js文件??!! :'+path+'/'+fileName+'\033[39m');
         else
             resArray.push(path + '/' + fileName);
@@ -43,7 +43,7 @@ for(var i=0; i<resArray.length;i++)
 
 
 //将res列表写入到src/resource.js中
-var str=resArray.join(',\n\t');
-str='var g_resources=[\n\t'+str+"\n];";
+var str=resArray.join('",\n\t"');
+str='var g_resources=[\n\t"'+str+'"\n];';
 fs.writeFileSync('src/resource.js',str,'utf-8');
 console.log("\n\033[36mres文件列表已经写入到src/resource.js文件里了\033[39m");
